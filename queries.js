@@ -8,7 +8,7 @@ function getInfo(client, name){
         return console.error("error running query", err);
       }
       const output = result.rows; 
-      console.log(`Found ${output.length} person(s) by the ${name}`);
+      console.log(`Found ${output.length} person(s) by the name '${name}'`);
       let i = 1;
       output.forEach((person) => {
         console.log(`- ${i}: ${person.first_name} ${person.last_name}, born '${(person.birthdate).toISOString().split('T')[0]}'`);
@@ -20,8 +20,3 @@ function getInfo(client, name){
 }
 
 exports.getInfo = getInfo;
-
-// module.exports = {
-//   getInfo: getInfo,
-//   client: client
-// }
